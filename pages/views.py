@@ -11,7 +11,3 @@ def index(request):
 #Page: Pages/About.html
 def about(request):
     return render(request, 'pages/about.html')
-
-#Page: base.html
-def base(request):
-    return render(request, 'base.html')
