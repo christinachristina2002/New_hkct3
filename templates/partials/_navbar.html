@@ -1,4 +1,4 @@
-{% load static %}
+{% load static %}{% comment %} 讓 Django 載入靜態檔案 {% endcomment %}  
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary sticky-top">
         <div class="container">
@@ -17,15 +17,28 @@
           </button>
           <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
             <ul class="navbar-nav">
-              <li class="nav-item active mr-3">
+              {% comment %} <Links> Index {% endcomment %} 
+              <li {% if '/' == request.path %} 
+              class="nav-item active mr-3" {% comment %} Alway light up HOME {% endcomment %} 
+              {% else %}
+              class="nav-item mr-3"
+              {% endif %}
+              >
                 {% comment %} DONE index.html {% endcomment %} 
                 <a class="nav-link" href={% url "index" %}>Home</a>
               </li>
-              <li class="nav-item mr-3">
+              {% comment %} <Links> Index {% endcomment %} 
+              <li {% if 'about' in request.path %} {% comment %} Light up {% endcomment %} 
+              class="nav-item active mr-3"
+              {% else %}
+              class="nav-item mr-3" {% comment %} Off light {% endcomment %} 
+              {% endif %}
+              >
                 {% comment %} DONE about.html {% endcomment %} 
                 <a class="nav-link" href={% url "about" %}>About</a>
               </li>
               <li class="nav-item mr-3">
+                {% comment %} DONE register.html {% endcomment %} 
                 <a class="nav-link" href="register.html">Featured Listings</a>
               </li>
             </ul>
