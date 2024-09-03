@@ -17,7 +17,7 @@
           </button>
           <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
             <ul class="navbar-nav">
-              {% comment %} <Links> Index {% endcomment %} 
+{% comment %} <Links> Index {% endcomment %} 
               <li {% if '/' == request.path %} 
               class="nav-item active mr-3" {% comment %} Alway light up HOME {% endcomment %} 
               {% else %}
@@ -27,7 +27,7 @@
                 {% comment %} DONE index.html {% endcomment %} 
                 <a class="nav-link" href={% url "index" %}>Home</a>
               </li>
-              {% comment %} <Links> Index {% endcomment %} 
+{% comment %} <Links> About {% endcomment %} 
               <li {% if 'about' in request.path %} {% comment %} Light up {% endcomment %} 
               class="nav-item active mr-3"
               {% else %}
@@ -37,9 +37,14 @@
                 {% comment %} DONE about.html {% endcomment %} 
                 <a class="nav-link" href={% url "about" %}>About</a>
               </li>
-              <li class="nav-item mr-3">
-                {% comment %} DONE register.html {% endcomment %} 
-                <a class="nav-link" href="register.html">Featured Listings</a>
+{% comment %} <Links> Listings {% endcomment %} 
+              <li {% if 'listings' in request.path %} {% comment %} Light up {% endcomment %} 
+                class="nav-item active mr-3"
+                {% else %}
+                class="nav-item mr-3" {% comment %} Off light {% endcomment %} 
+                {% endif %}
+                >
+                <a class="nav-link" href={% url "listings" %}>Featured Listings</a>
               </li>
             </ul>
   
