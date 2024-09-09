@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles', #css file
+    'django.contrib.humanize', #Django humanize/#intcomma ~ https://docs.djangoproject.com/en/5.1/ref/contrib/humanize/#intcomma
     'pages.apps.PagesConfig',
     'listings.apps.ListingsConfig',
     'realtors.apps.RealtorsConfig',
