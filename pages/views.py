@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from listings.models import Listing #<-- load listings\models.py
 from realtors.models import Realtor #<-- load realtors\models.py
+from listings.choices import price_choices, bedroom_choices, district_choices
 #from django.http import HttpResponse <-- load HTML
 
 # Create your views here.
@@ -9,7 +10,10 @@ from realtors.models import Realtor #<-- load realtors\models.py
 def index(request):
     #return HttpResponse("<h1>Hello World<h1>")
     listings = Listing.objects.order_by("-list_date").filter(is_published=True)[:3]
-    context = {'listings':listings}
+    context = {'listings':listings,
+               'price_choices':price_choices,
+               'bedroom_choices':bedroom_choices,
+               'district_choices':district_choices}
     return render(request, 'pages/index.html', context)
 
 #Page: Pages/About.html
