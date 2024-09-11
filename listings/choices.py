@@ -1,4 +1,5 @@
 bedroom_choices = {
+    '':'Bedrooms (All)',
     '1': 1,
     '2': 2,
     '3': 3,
@@ -12,6 +13,7 @@ bedroom_choices = {
 }
 
 price_choices = {
+    '':'Max Price (Any)',
     '1000000': '$1,000,000',
     '2000000': '$2,000,000',
     '3000000': '$3,000,000',
@@ -25,6 +27,7 @@ price_choices = {
 }
 
 district_choices = {
+    '':'Max Price (Any)',
     'Islands': 'Islands',
     'Kwai Tsing': 'Kwai Tsing',
     'North': 'North',

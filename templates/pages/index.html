@@ -28,12 +28,12 @@
                     </div>
   
                     <div class="col-md-4 mb-3">
-                      <label class="sr-only">street</label>
+                      <label class="sr-only">title</label>
                       <input
                         type="text"
-                        name="street"
+                        name="title"
                         class="form-control"
-                        placeholder="Street"
+                        placeholder="Title"
                       />
                     </div>
   
@@ -104,7 +104,7 @@
 {% comment %} Price {% endcomment %}
                   <h2>
                     <span class="badge badge-secondary text-white"
-                      >${{listing.price | intcomma}}M</span
+                      >${{listing.price | intcomma}}</span
                     >
                   </h2>
                 </div>
@@ -121,7 +121,7 @@
 {% comment %} Sqft {% endcomment %}
                   <div class="row py-2 text-secondary">
                     <div class="col-6">
-                      <i class="fas fa-th-large"></i> Sqft: {{listing.sqft}}
+                      <i class="fas fa-th-large"></i> Sqft: {{listing.sqft | intcomma}}
                     </div>
 {% comment %} ClubHouse {% endcomment %}
                     <div class="col-6">
@@ -150,7 +150,7 @@
                     </div>
                   </div>
                   <hr />
-                  <a href="listing.html" class="btn btn-primary btn-block"
+                  <a href={% url 'listing' listing.id %} class="btn btn-primary btn-block"
                     >More Info</a
                   >
                 </div>

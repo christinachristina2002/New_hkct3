@@ -42,7 +42,7 @@
             
             <div class="card-img-overlay">
               <h2>
-                <span class="badge badge-secondary text-white">${{listing.price |intcomma}}M
+                <span class="badge badge-secondary text-white">${{listing.price |intcomma}}
                 </span>
               </h2>
             </div>
@@ -56,7 +56,7 @@
               <hr />
               <div class="row py-2 text-secondary">
                 <div class="col-6">
-                  <i class="fas fa-th-large"></i> Sqft: {{listing.sqft}}
+                  <i class="fas fa-th-large"></i> Sqft: {{listing.sqft | intcomma}}
                 </div>
                 <div class="col-6">
                   <i class="fas fa-dumbbell"></i> ClubHouse: {{listing.clubhouse}}
