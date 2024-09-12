@@ -35,7 +35,6 @@
               <div class="col-md-4 mb-3">
                 <label class="sr-only">District</label>
                 <select name="district" class="form-control">
-
                   {% for key,value in district_choices.items %}
                   <option value="{{key}}"
                     {% if key == values.district %} 
@@ -177,8 +176,9 @@
         <div class="col-md-12"
             <p>No Listings Available</p>
         </div>
-        {% endif %}
+        {% endif %} 
       </div>
+      <p style="font-size: 30px">Total searched results: {{total}}</p>
     </div>
   </section>
 

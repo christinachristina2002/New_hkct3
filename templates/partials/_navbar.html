@@ -49,19 +49,57 @@
             </ul>
   
             <ul class="navbar-nav ml-auto">
+{% comment %} If login then slow deshboard and logout link {% endcomment %}
+{% comment %} If login then hidden <Links> deshboard and logout {% endcomment %}
+            {% if user.is_authenticated %}
+              <li 
+              {% if 'logon' in request.path %} {% comment %} Light up {% endcomment %} 
+              class="nav-item active mr-3"
+              {% else %}
+              class="nav-item mr-3" {% comment %} Off light {% endcomment %} 
+              {% endif %}
+              >
+              <a class="nav-link" href={% url "dashboard" %}>
+                Welcome {{user.username}} (dashboard)
+              </a>
+              </li>  
               <li class="nav-item mr-3">
-                <a class="nav-link" href="register.html">
+                <a href="javascript:{document.getElementById('logout').submit()}" class='nav-link'>
+                  <i class="fas fas fa-sign-out-alt"></i>
+                  logout
+                </a>  
+                <form action="{% url 'logout' %}" method="POST" id="logout">
+                  {% csrf_token %} 
+                  <input type='hidden'/>
+                </form>
+              </li>  
+            {% else %}
+{% comment %} <Links> Register {% endcomment %}
+              <li class="nav-item mr-3">
+                <li 
+                {% if 'register' in request.path %} {% comment %} Light up {% endcomment %} 
+                class="nav-item active mr-3"
+                {% else %}
+                class="nav-item mr-3" {% comment %} Off light {% endcomment %} 
+                {% endif %}
+                >
+                <a class="nav-link" href={% url "register" %}>
                   <i class="fas fa-user-plus"></i> Register</a
                 >
               </li>
-              <li class="nav-item mr-3">
-                {% comment %} fix login.html {% endcomment %}
-                <a class="nav-link" href="login.html">
+{% comment %} <Links> Login {% endcomment %}
+                <li 
+                {% if 'logon' in request.path %} {% comment %} Light up {% endcomment %} 
+                class="nav-item active mr-3"
+                {% else %}
+                class="nav-item mr-3" {% comment %} Off light {% endcomment %} 
+                {% endif %}
+                >   
+                <a class="nav-link" href={% url "login" %}>
                   <i class="fas fa-sign-in-alt"></i>
-  
-                  Login</a
-                >
+                  Login</a>
               </li>
+            {% endif %}
             </ul>
           </div>
         </div>

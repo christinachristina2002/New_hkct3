@@ -27,7 +27,7 @@ price_choices = {
 }
 
 district_choices = {
-    '':'Max Price (Any)',
+    '':'District (All)',
     'Islands': 'Islands',
     'Kwai Tsing': 'Kwai Tsing',
     'North': 'North',
